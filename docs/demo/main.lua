@@ -20,10 +20,5 @@ end
 
 function love.draw()
   love.graphics.setShader(shader)
-  love.graphics.draw(canvas)
-  love.graphics.setCanvas(canvas)
-  love.graphics.setShader()
-  love.graphics.setCanvas()
-
   love.graphics.draw(canvas,0,0,0,1,1,0,0)
 end
