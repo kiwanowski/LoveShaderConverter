@@ -86,7 +86,7 @@ function love.update(dt)
     -- increment our pseudo time variable
     time = dt + time;
     -- When converting, the following variables were requested from the shader...
-    shader:send('iResolution', { love.window.getWidth(), love.window.getHeight(), 1 })
+    shader:send('iResolution', { love.graphics.getWidth(), love.graphics.getHeight(), 1 })
     shader:send('iGlobalTime', time)
     shader:send('iMouse', { love.mouse.getX(), love.mouse.getY(), 0, 0 })
 end
@@ -95,12 +95,7 @@ end
 Last and definatly not least, the draw function
 ```lua
 function love.draw()
-    love.graphics.setCanvas(canvas)
     love.graphics.setShader(shader)
-    love.graphics.draw(canvas)
-    love.graphics.setShader()
-    love.graphics.setCanvas()
-
     love.graphics.draw(canvas,0,0,0,1,1,0,0)
 end
 ```
